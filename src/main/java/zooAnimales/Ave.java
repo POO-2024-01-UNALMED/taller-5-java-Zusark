@@ -13,6 +13,7 @@ public class Ave extends Animal{
     public Ave(){}
     public Ave(String nombre, int edad, String habitat,String genero,String colorPlumas){
         super(nombre,edad,habitat,genero);
+        Ave.listado.add(this);
         this.colorPlumas = colorPlumas;
     }
     public Ave(String nombre, int edad, String habitat, String genero, Zona zona,int halcones, int aguilas, String colorPlumas){
@@ -37,6 +38,9 @@ public class Ave extends Animal{
     }
     public static int cantidadAves(){
         int total;
+        if (Ave.listado == null){
+            return 0;
+        }
         total = Ave.aguilas+Ave.halcones;
         return total;
     }

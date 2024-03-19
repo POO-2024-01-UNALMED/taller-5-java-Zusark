@@ -14,6 +14,7 @@ public class Reptil extends Animal{
     public Reptil(){}
     public Reptil(String nombre, int edad,String habitat, String genero, String colorEscamas, int largoCola){
         super(nombre,edad,habitat,genero);
+        Reptil.listado.add(this);
         this.colorEscamas = colorEscamas;
         this.largoCola = largoCola;
     }
@@ -47,6 +48,9 @@ public class Reptil extends Animal{
 
     public static int cantidadReptiles(){
         int total;
+        if (Reptil.listado == null){
+            return 0;
+        }
         total = Reptil.listado.size();
         return total;
     }
