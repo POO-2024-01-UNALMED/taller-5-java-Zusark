@@ -1,67 +1,67 @@
 package zooAnimales;
+import java.util.*;
 
-import gestion.Zona;
-
-import java.util.ArrayList;
-
-public class Reptil extends Animal{
-    private static ArrayList<Reptil> listado;
+public class Reptil extends Animal {
+    private ArrayList<Reptil> listado= new ArrayList<>();
     public static int iguanas;
     public static int serpientes;
     private String colorEscamas;
     private int largoCola;
-    private static int creados;
+    public static int creados;
 
-    public Reptil(){
-        Reptil.creados++;
+    public String getColorEscamas() {
+        return colorEscamas;
     }
-    public Reptil(String nombre, int edad,String habitat, String genero, String colorEscamas, int largoCola){
-        super(nombre,edad,habitat,genero);
-        Reptil.creados++;
+
+    public void setColorEscamas(String colorEscamas) {
         this.colorEscamas = colorEscamas;
-        this.largoCola = largoCola;
     }
-    public Reptil(String nombre, int edad, String habitat, String genero, Zona zona,int iguanas, int serpientes, String colorEscamas, int largoCola){
-        super(nombre,edad,habitat,genero,zona);
-        Reptil.creados++;
-        Reptil.listado.add(this);
-        Reptil.iguanas = iguanas;
-        Reptil.serpientes = serpientes;
-        this.colorEscamas = colorEscamas;
+
+    public int getLargoCola() {
+        return largoCola;
+    }
+
+    public void setLargoCola(int largoCola) {
         this.largoCola = largoCola;
     }
 
-    public ArrayList<Reptil> getListado(){
-        return Reptil.listado;
-    }
-    public void setListado(ArrayList<Reptil> listado){
-        Reptil.listado = listado;
-    }
-    public String getColorEscamas(){
-        return this.colorEscamas;
-    }
-    public void setColorEscamas(String colorEscamas){
-        this.colorEscamas = colorEscamas;
-    }
-    public int getLargoCola(){
-        return this.largoCola;
-    }
-    public void setLargoCola(int largoCola){
-        this.largoCola = largoCola;
+    public Reptil() {
+        listado.add(this);
+        creados++;
     }
 
-    public static int cantidadReptiles(){
+    public Reptil(String nombre, int edad, String habitat, String genero, String colorEscamas, int largoCola) {
+        super(nombre, edad, habitat,genero);
+        this.colorEscamas=colorEscamas;
+        this.largoCola=largoCola;
+        listado.add(this);
+        creados++;
+    }
+
+    public static int cantidadReptiles() {
         return creados;
     }
-    public String movimiento(){
+
+    public String movimiento() {
         return "reptar";
     }
-    public static Reptil crearIguana(String nombre, int edad, String genero){
-        Reptil.iguanas++;
-        return new Reptil(nombre,edad,"humedal",genero,"verde",3);
+
+    public static Reptil crearIguana(String nombre, int edad, String genero) {
+        String habitat="humedal";
+        String colorEscamas="verde";
+        int largoCola=3;
+        Reptil reptil=new Reptil(nombre,edad,habitat,genero,colorEscamas,largoCola);
+        iguanas++;
+        return reptil;
     }
-    public static Reptil crearSerpiente(String nombre, int edad, String genero){
-        Reptil.serpientes++;
-        return new Reptil(nombre,edad,"jungla",genero,"blanco",1);
+
+    public static Reptil crearSerpiente(String nombre, int edad, String genero) {
+        String habitat="jungla";
+        String colorEscamas="blanco";
+        int largoCola=1;
+        Reptil reptil=new Reptil(nombre,edad,habitat,genero,colorEscamas,largoCola);
+        serpientes++;
+        return reptil;
     }
+
 }
