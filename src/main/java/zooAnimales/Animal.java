@@ -44,7 +44,7 @@ public class Animal {
     public String movimiento(){
         return "desplazarse";
     };
-    public String totalPorTipo(){
+    public static String totalPorTipo(){
         String cadena;
         cadena ="Mamiferos: "+Mamifero.cantidadMamiferos()+
                         "\nAves: "+Ave.cantidadAves()+
