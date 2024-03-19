@@ -12,7 +12,7 @@ public class Ave extends Animal{
     private static int creados;
 
     public Ave(){
-        ++Ave.creados;
+        Ave.creados++;
     }
     public Ave(String nombre, int edad, String habitat,String genero,String colorPlumas){
         super(nombre,edad,habitat,genero);
