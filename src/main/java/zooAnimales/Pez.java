@@ -2,8 +2,10 @@ package zooAnimales;
 
 import gestion.Zona;
 
+import java.util.ArrayList;
+
 public class Pez extends Animal{
-    private static Pez[] listado;
+    private static ArrayList<Pez> listado;
     public static int salmones;
     public static int bacalaos;
     private String colorEscamas;
@@ -15,19 +17,19 @@ public class Pez extends Animal{
         this.colorEscamas = colorEscamas;
         this.cantidadAletas = cantidadAletas;
     }
-    public Pez(int totalAnimales, String nombre, int edad, String habitat, String genero, Zona zona, Pez[] listado, int salmones, int bacalaos, String colorEscamas, int cantidadAletas){
-        super(totalAnimales,nombre,edad,habitat,genero,zona);
-        Pez.listado = listado;
+    public Pez(String nombre, int edad, String habitat, String genero, Zona zona, int salmones, int bacalaos, String colorEscamas, int cantidadAletas){
+        super(nombre,edad,habitat,genero,zona);
+        Pez.listado.add(this);
         Pez.salmones = salmones;
         Pez.bacalaos = bacalaos;
         this.colorEscamas = colorEscamas;
         this.cantidadAletas = cantidadAletas;
     }
 
-    public Pez[] getListado(){
+    public ArrayList<Pez> getListado(){
         return Pez.listado;
     }
-    public void setListado(Pez[] listado){
+    public void setListado(ArrayList<Pez> listado){
         Pez.listado = listado;
     }
     public String getColorEscamas(){
@@ -45,18 +47,18 @@ public class Pez extends Animal{
 
     public static int cantidadPeces(){
         int total;
-        total = Pez.listado.length;
+        total = Pez.listado.size();
         return total;
     }
     public String movimiento(){
         return "nadar";
     }
-    public void crearSalmon(String nombre, int edad, String genero){
-        this(nombre,edad,"oceano",genero,"rojo",6);
+    public static Pez crearSalmon(String nombre, int edad, String genero){
         Pez.salmones++;
+        return new Pez(nombre,edad,"oceano",genero,"rojo",6);
     }
-    public void crearBacalao(String nombre, int edad, String genero){
-        this(nombre,edad,"oceano",genero,"gris",6);
+    public static Pez crearBacalao(String nombre, int edad, String genero){
         Pez.bacalaos++;
+        return new Pez(nombre,edad,"oceano",genero,"gris",6);
     }
 }

@@ -2,8 +2,10 @@ package zooAnimales;
 
 import gestion.Zona;
 
+import java.util.ArrayList;
+
 public class Reptil extends Animal{
-    private static Reptil[] listado;
+    private static ArrayList<Reptil> listado;
     public static int iguanas;
     public static int serpientes;
     private String colorEscamas;
@@ -15,19 +17,19 @@ public class Reptil extends Animal{
         this.colorEscamas = colorEscamas;
         this.largoCola = largoCola;
     }
-    public Reptil(int totalAnimales, String nombre, int edad, String habitat, String genero, Zona zona, Reptil[] listado, int iguanas, int serpientes, String colorEscamas, int largoCola){
-        super(totalAnimales,nombre,edad,habitat,genero,zona);
-        Reptil.listado = listado;
+    public Reptil(String nombre, int edad, String habitat, String genero, Zona zona,int iguanas, int serpientes, String colorEscamas, int largoCola){
+        super(nombre,edad,habitat,genero,zona);
+        Reptil.listado.add(this);
         Reptil.iguanas = iguanas;
         Reptil.serpientes = serpientes;
         this.colorEscamas = colorEscamas;
         this.largoCola = largoCola;
     }
 
-    public Reptil[] getListado(){
+    public ArrayList<Reptil> getListado(){
         return Reptil.listado;
     }
-    public void setListado(Reptil[] listado){
+    public void setListado(ArrayList<Reptil> listado){
         Reptil.listado = listado;
     }
     public String getColorEscamas(){
@@ -45,18 +47,18 @@ public class Reptil extends Animal{
 
     public static int cantidadReptiles(){
         int total;
-        total = Anfibio.listado.length;
+        total = Reptil.listado.size();
         return total;
     }
     public String movimiento(){
         return "reptar";
     }
-    public void crearIguana(String nombre, int edad, String genero){
-        this(nombre,edad,"humedal",genero,"verde",3);
+    public static Reptil crearIguana(String nombre, int edad, String genero){
         Reptil.iguanas++;
+        return new Reptil(nombre,edad,"humedal",genero,"verde",3);
     }
-    public void crearSerpiente(String nombre, int edad, String genero){
-        this(nombre,edad,"jungla",genero,"blanco",1);
+    public static Reptil crearSerpiente(String nombre, int edad, String genero){
         Reptil.serpientes++;
+        return new Reptil(nombre,edad,"jungla",genero,"blanco",1);
     }
 }

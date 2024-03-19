@@ -40,10 +40,10 @@ public class Zoologico {
     public void setUbicacion(String ubicacion){
         this.ubicacion = ubicacion;
     }
-    public Zona[] getZonas(){
+    public Zona[] getZona(){
         return this.zonas;
     }
-    public void setZonas(Zona[] zonas){
+    public void setZona(Zona[] zonas){
         this.zonas = zonas;
     }
 }

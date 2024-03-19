@@ -8,7 +8,9 @@ public class Animal {
     private String genero;
     private Zona zona;
 
-    public Animal(){}
+    public Animal(){
+        Animal.totalAnimales++;
+    }
     public Animal(String nombre){
         this.nombre = nombre;
     }
@@ -27,8 +29,8 @@ public class Animal {
         this.habitat = habitat;
         this.genero = genero;
     }
-    public Animal(int totalAnimales,String nombre, int edad,String habitat, String genero,Zona zona){
-        Animal.totalAnimales = totalAnimales;
+    public Animal(String nombre, int edad,String habitat, String genero,Zona zona){
+        Animal.totalAnimales++;
         this.nombre = nombre;
         this.edad = edad;
         this.habitat = habitat;
