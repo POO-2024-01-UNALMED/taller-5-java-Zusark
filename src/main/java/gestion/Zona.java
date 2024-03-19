@@ -7,7 +7,13 @@ public class Zona {
     private Zoologico zoo;
     private Animal[] animales;
     public Zona(){
-
+    }
+    public Zona(String nombre){
+        this.nombre = nombre;
+    }
+    public Zona(String nombre, Zoologico zoo){
+        this.nombre = nombre;
+        this.zoo = zoo;
     }
     public Zona(String nombre, Zoologico zoo, Animal[] animales){
         this.nombre = nombre;

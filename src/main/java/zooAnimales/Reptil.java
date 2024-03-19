@@ -10,6 +10,11 @@ public class Reptil extends Animal{
     private int largoCola;
 
     public Reptil(){}
+    public Reptil(String nombre, int edad,String habitat, String genero, String colorEscamas, int largoCola){
+        super(nombre,edad,habitat,genero);
+        this.colorEscamas = colorEscamas;
+        this.largoCola = largoCola;
+    }
     public Reptil(int totalAnimales, String nombre, int edad, String habitat, String genero, Zona zona, Reptil[] listado, int iguanas, int serpientes, String colorEscamas, int largoCola){
         super(totalAnimales,nombre,edad,habitat,genero,zona);
         Reptil.listado = listado;
@@ -46,10 +51,12 @@ public class Reptil extends Animal{
     public String movimiento(){
         return "reptar";
     }
-    public void crearIguana(){
-
+    public void crearIguana(String nombre, int edad, String genero){
+        this(nombre,edad,"humedal",genero,"verde",3);
+        Reptil.iguanas++;
     }
-    public void crearSerpiente(){
-
+    public void crearSerpiente(String nombre, int edad, String genero){
+        this(nombre,edad,"jungla",genero,"blanco",1);
+        Reptil.serpientes++;
     }
 }
